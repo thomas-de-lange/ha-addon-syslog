@@ -159,6 +159,12 @@ if SYSLOG_SSL and not SYSLOG_SSL_VERIFY:
 syslog_handler = TlsSysLogHandler(
     address=(SYSLOG_HOST, SYSLOG_PORT), socktype=socktype, ssl=use_ssl
 )
+# CPython's SysLogHandler defaults append_nul=True with no constructor kwarg
+# for it, appending a trailing NUL byte to every message. RFC3164 parsers
+# (e.g. Alloy's loki.source.syslog / leodido/go-syslog) treat the
+# NUL-terminated body as an empty message and silently drop it — packets
+# arrive, nothing reaches Loki. See mib1185/ha-addon-syslog#39.
+syslog_handler.append_nul = False
 formatter = logging.Formatter(
     f"%(asctime)s %(ip)s %(prog)s: %(message)s",
     defaults={"ip": HAOS_HOSTNAME},
