@@ -1,3 +1,3 @@
-name: "Syslog Home Assistant add-on"
-url: "https://github.com/mib1185/ha-addon-syslog"
+name: "Syslog Home Assistant add-on (Fork thomas-de-lange)"
+url: "https://github.com/thomas-de-lange/ha-addon-syslog"
 maintainer: "@mib1185"
