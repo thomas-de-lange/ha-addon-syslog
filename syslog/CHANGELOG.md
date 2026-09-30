@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 (Fork thomas-de-lange)
+
+- Fix: no trailing NUL byte, so RFC3164 parsers like Grafana Alloy no longer drop every message (mib1185/ha-addon-syslog#39, #40 by @hkoeck)
+- Fork: no prebuilt image, Home Assistant builds the add-on locally from the Dockerfile
+
 ## 0.4.1
 
 - Fix tagging of containers
