@@ -168,7 +168,10 @@ syslog_handler.append_nul = False
 formatter = logging.Formatter(
     f"%(asctime)s %(ip)s %(prog)s: %(message)s",
     defaults={"ip": HAOS_HOSTNAME},
-    datefmt="%b %d %H:%M:%S",
+    # RFC3164 pads single-digit days with a space ("Oct  9"), not a zero.
+    # Alloy's parser rejects "Oct 09" ("expecting a Stamp timestamp [col 8]")
+    # and drops every message on days 1-9 of each month.
+    datefmt="%b %e %H:%M:%S",
 )
 syslog_handler.setFormatter(formatter)
 logger.addHandler(syslog_handler)
