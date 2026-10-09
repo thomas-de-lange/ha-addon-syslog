@@ -1,5 +1,5 @@
 name: "Syslog (Fork)"
-version: "0.4.2"
+version: "0.4.3"
 slug: "syslog"
 description: "Send your HAOS logs to a remote syslog server (Fork with fix for mib1185/ha-addon-syslog#39)"
 url: "https://github.com/thomas-de-lange/ha-addon-syslog"

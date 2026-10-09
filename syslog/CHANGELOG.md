@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3 (Fork thomas-de-lange)
+
+- Fix: RFC3164 timestamp with space-padded day ("Oct  9" instead of "Oct 09"), otherwise Grafana Alloy drops all messages on days 1-9 of each month
+
 ## 0.4.2 (Fork thomas-de-lange)
 
 - Fix: no trailing NUL byte, so RFC3164 parsers like Grafana Alloy no longer drop every message (mib1185/ha-addon-syslog#39, #40 by @hkoeck)
